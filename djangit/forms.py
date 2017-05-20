@@ -6,7 +6,6 @@ from djangit.models import Aroma
 
 # ===== CREATE A HOPFORM CLASS =====
 class HopForm(ModelForm):
-    
 
     class Meta:
         model = Hop
@@ -15,6 +14,10 @@ class HopForm(ModelForm):
             "alpha_acid_low": forms.NumberInput(attrs={
                 'class':"form-control",
                 'placeholder':"Alpha Acid Low"
+                }),
+            "alpha_acid_high": forms.NumberInput(attrs={
+                'class':"form-control",
+                'placeholder':"Alpha Acid High"
                 })
         }
 

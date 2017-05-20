@@ -11,6 +11,10 @@ class HopForm(ModelForm):
         model = Hop
         fields = ['hop_name', 'alpha_acid_low', 'alpha_acid_high', 'beta_acid_low', 'beta_acid_high', 'total_oil_low', 'total_oil_high', 'cohumulone_low', 'cohumulone_high']
         widgets = {
+            "hop_name": forms.TextInput(attrs={
+                'class':"form-control",
+                'placeholder':"HOP VARIETY"
+                }),
             "alpha_acid_low": forms.NumberInput(attrs={
                 'class':"form-control",
                 'placeholder':"Alpha Acid Low"
@@ -18,6 +22,30 @@ class HopForm(ModelForm):
             "alpha_acid_high": forms.NumberInput(attrs={
                 'class':"form-control",
                 'placeholder':"Alpha Acid High"
+                }),
+            "beta_acid_low": forms.NumberInput(attrs={
+                'class':"form-control",
+                'placeholder':"Beta Acid Low"
+                }),
+            "beta_acid_high": forms.NumberInput(attrs={
+                'class':"form-control",
+                'placeholder':"Beta Acid High"
+                }),
+            "total_oil_low": forms.NumberInput(attrs={
+                'class':"form-control",
+                'placeholder':"Total Oil Low"
+                }),
+            "total_oil_high": forms.NumberInput(attrs={
+                'class':"form-control",
+                'placeholder':"Total Oil High"
+                }),
+            "cohumulone_low": forms.NumberInput(attrs={
+                'class':"form-control",
+                'placeholder':"Cohumulone Low"
+                }),
+            "cohumulone_high": forms.NumberInput(attrs={
+                'class':"form-control",
+                'placeholder':"Cohumulone High"
                 })
         }
 

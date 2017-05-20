@@ -1,19 +1,18 @@
 {% include '_navbar.html' %}
 
 <h1>Add a New Hop</h1>
-{{ hopform }}
 <form method="POST" action="/hops/" class="well">
   <div class="row">
     <div class="col-md-6">
       <div class="form-group">
-        <label for="hop_name">Hop Name</label>
-        <input type="text" name="hop_name" class="form-control" id="hop-name" placeholder="Hop Name" value="{{ hop.hop_name }}">
+        <!-- HOP VARIETY -->
+        {{hopform.hop_name.label_tag}}
+        {{hopform.hop_name}}
       </div>
     </div>
   </div> <!-- END ROW -->
 
   <div class="row">
-
     <div class="col-md-3">
       <div class="form-group">
         <!-- ALPHA ACID LOW -->
@@ -32,60 +31,61 @@
 
     <div class="col-md-3">
       <div class="form-group">
-        <label for="beta_acid_low">Beta Acid Low</label>
-        <input type="text" name="beta_acid_low" class="form-control" id="beta-acid-low" placeholder="Beta Acid Low" value="{{ hop.beta_acid_low }}">
+        <!-- BETA ACID LOW -->
+        {{hopform.beta_acid_low.label_tag}}
+        {{hopform.beta_acid_low}}
       </div>
     </div>
 
     <div class="col-md-3">
       <div class="form-group">
-        <label for="beta_acid_low">Beta Acid High</label>
-        <input type="text" name="beta_acid_high" class="form-control" id="beta-acid-high" placeholder="Beta Acid High" value="{{ hop.beta_acid_high }}">
+        <!-- BETA ACID HIGH -->
+        {{hopform.beta_acid_high.label_tag}}
+        {{hopform.beta_acid_high}}
       </div>
     </div>
-
   </div> <!-- END ROW -->
 
   <div class="row">
-
+    <!-- TOTAL OIL LOW -->
     <div class="col-md-3">
       <div class="form-group">
-        <label for="total_oil_low">Total Oil Low</label>
-        <input type="text" name="total_oil_low" class="form-control" id="total-oil-low" placeholder="Total Oil Low" value="{{ hop.total_oil_low }}">
+        {{hopform.total_oil_low.label_tag}}
+        {{hopform.total_oil_low}}
       </div>
     </div>
-
+    <!-- TOTAL OIL HIGH -->
     <div class="col-md-3">
       <div class="form-group">
-        <label for="total_oil_high">Total Oil High</label>
-        <input type="text" name="total_oil_high" class="form-control" id="total-oil-high" placeholder="Total Oil Low" value="{{ hop.total_oil_high }}">
+        {{hopform.total_oil_high.label_tag}}
+        {{hopform.total_oil_high}}
       </div>
     </div>
-
+    <!-- COHUMULONE LOW -->
     <div class="col-md-3">
       <div class="form-group">
-        <label for="cohumulone_low">Cohumulone Low</label>
-        <input type="text" name="cohumulone_low" class="form-control" id="cohumulone-low" placeholder="Cohumulone Low" value="{{ hop.cohumulone_low }}">
+        {{hopform.cohumulone_low.label_tag}}
+        {{hopform.cohumulone_low}}
       </div>
     </div>
-
+    <!-- COHUMULONE HIGH -->
     <div class="col-md-3">
       <div class="form-group">
-        <label for="cohumulone_high">Cohumulone High</label>
-        <input type="text" name="cohumulone_high" class="form-control" id="cohumulone-high" placeholder="Cohumulone High" value="{{ hop.cohumulone_high }}">
+        {{hopform.cohumulone_high.label_tag}}
+        {{hopform.cohumulone_high}}
       </div>
     </div>
-
   </div> <!-- END ROW -->
+
   <div class="row">
     <div class="col-md-6">
     </div>
     <div class="col-md-6">
     </div>
-  </div>
+  </div> <!-- END ROW -->
   <div class="row">
     <div class="col-md-12">
     </div>
-  </div>
+  </div> <!-- END ROW -->
   <button type="submit" class="btn btn-default">Submit</button>
 </form>

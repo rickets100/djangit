@@ -1,0 +1,39 @@
+<!--  -->
+{% include '_navbar.html' %}
+<html>
+  <head>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row col-md-8 col-md-offset-2 custyle">
+        <table class="table table-striped custab">
+          <thead>
+            <tr>
+              <th>Variety</th>
+              <th>Apha Acid</th>
+              <th>Beta Acid</th>
+              <th>Total Oil</th>
+              <th>Cohumulone</th>
+              <th class="text-center">Action</th>
+            </tr>
+          </thead>
+          {% for hop in all_hops %}
+            <tr>
+              <td><a href="/hops/{{hop.id}}/">{{ hop.hop_name }}</a></td>
+              <td>{{ hop.alpha_acid_low }} - {{ hop.alpha_acid_high }}</td>
+              <td>{{ hop.beta_acid_low }} - {{ hop.beta_acid_high }}</td>
+              <td>{{ hop.total_oil_low }} - {{ hop.total_oil_high }}</td>
+              <td>{{ hop.cohumulone_low }} - {{ hop.cohumulone_high }}</td>
+              <td class="text-center"><a class='btn btn-info btn-xs' href="/hops/{{hop.id}}/edit/"><span class="glyphicon glyphicon-edit"></span> Edit</a> <a href="#" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> Del</a></td>
+            </tr>
+          {% endfor %}
+        </table>
+      </div>
+    </div>
+  </body>
+</html>
+<!--
+<form method="POST" action="/hops/{{hop.id}}?_method=DELETE">
+    <button type="submit" name="hop_id" value="{{hop.id}}" "btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span>Del</button>
+</form>
+-->

@@ -3,11 +3,8 @@ from django.contrib import admin
 
 # these are classes that are being imported
 from .models import Country
-# from .forms import CountryForm
 from .models import Aroma
-# from .forms import AromaForm
 from .models import Hop
-# from .forms import HopForm
 
 # can add to the list of fields after 'hop_name'
 class CountryAdmin(admin.ModelAdmin):

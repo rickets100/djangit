@@ -1,32 +1,31 @@
 
 # this is where to put the views that are called by the routes
+# one option for logging is: print request.method
+
 from djangit.forms import HopForm
 from djangit.models import Hop
 from django.shortcuts import render_to_response
 from django.http import HttpResponseRedirect
 from django.http import HttpResponse
 from django.template import RequestContext, loader
-import requests
 from rest_framework import routers
+import requests
 
 # ===== INDEX PAGE =====
 def index(request):
-    print request
     print "got to index"
     template = loader.get_template('index.html')
+
     return HttpResponse(template.render())
 
 # ===== GET ALL =====
 def hops(request):
-    print request.method
-    print "got to all hops"
+    print "got to get all"
     all_hops = Hop.objects.all().order_by('hop_name')
     template = loader.get_template('hops.html')
     model =  {
         "all_hops":all_hops
         }
-    print 'model info is'
-    print model
 
     return HttpResponse(template.render(model))
 
@@ -35,20 +34,23 @@ def edithop(request, id):
     print 'got to edithop'
     hop = Hop.objects.get(id=id)
     hopform = HopForm(instance=hop)
+    template = loader.get_template('hopform.html')
     model =  {
         "hopform":hopform
         }
 
-
-    template = loader.get_template('hopform.html')
     return HttpResponse(template.render(model))
 
 # ===== NEW HOP FORM =====
 def newhop(request):
     print 'got to newhop'
-
+    hopform = HopForm()
     template = loader.get_template('hopform.html')
-    return HttpResponse(template.render())
+    model =  {
+        "hopform":hopform
+        }
+
+    return HttpResponse(template.render(model))
 
 # ===== GET ONE BY ID =====
 def onehop(request, id):

@@ -1,6 +1,7 @@
 {% load bootstrap3 %}
 {% bootstrap_css %}
 {% bootstrap_javascript %}
+{% load static %}
 
 <nav class="navbar navbar-default">
   <div class="container-fluid">
@@ -12,7 +13,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">Brand</a>
+      <img class="navbar-brand" src="{% static "image/logo.jpg" %}" alt="hoppy"/>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -34,7 +35,7 @@
         </li>
       </ul>
       <form class="navbar-form navbar-left">
-        <a href="hops/new/" type="button" class="btn btn-default">Add a Hop</a>
+        <a href="/hops/new/" type="button" class="btn btn-default">Add a Hop</a>
       </form>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->

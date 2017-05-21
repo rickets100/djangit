@@ -65,11 +65,27 @@ def onehop(request, id):
     template = loader.get_template('showhop.html')
     return HttpResponse(template.render(model))
 
+# ===== ADD A HOP =====
+def addhop(request, id):
+    print 'got to add a shop'
+    template = loader.get_template('showhop.html')
+    context_instance=RequestContext(request)
+    hop = Hop.objects.get(id=id)
+    model =  {
+        "hop":hop
+        }
+    model.save()
+
+    return HttpResponse(template.render(model))
+
 # ===== DELETE ONE =====
 def deletehop(request, id):
     print 'got to deletehop'
-
-    hop = Hop.objects.get(id=id)
-
     template = loader.get_template('hops.html')
+    hop = Hop.objects.get(id=id)
+    model =  {
+        "hop":hop
+        }
+    hop.delete()
+
     return HttpResponse(template.render())

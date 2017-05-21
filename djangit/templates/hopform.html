@@ -1,7 +1,7 @@
 {% include '_navbar.html' %}
 
 <h1>Add a New Hop</h1>
-<form method="POST" action="/hops/" class="well">
+<form method="POST" action="/hops/" class="well">{% csrf_token %}
   <div class="row">
     <div class="col-md-6">
       <div class="form-group">

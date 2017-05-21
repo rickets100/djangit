@@ -8,6 +8,13 @@ https://docs.djangoproject.com/en/1.11/topics/settings/
 
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.11/ref/settings/
+
+# python -m django --version (see if django installed)
+# python manage.py runserver  (start server)
+# http://127.0.0.1:8000/
+# python manage.py runserver 8080 (change server port)
+# python manage.py startapp appname (make app & directory structure)
+# python manage.py shell
 """
 
 import os

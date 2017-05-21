@@ -1,3 +1,6 @@
+# https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django/Forms
+# https://docs.djangoproject.com/en/1.10/ref/validators/
+
 from django.forms import ModelForm
 from django import forms
 from djangit.models import Hop

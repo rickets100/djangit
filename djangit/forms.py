@@ -12,7 +12,7 @@ class HopForm(ModelForm):
 
     class Meta:
         model = Hop
-        fields = ['hop_name', 'alpha_acid_low', 'alpha_acid_high', 'beta_acid_low', 'beta_acid_high', 'total_oil_low', 'total_oil_high', 'cohumulone_low', 'cohumulone_high']
+        fields = ['id', 'hop_name', 'alpha_acid_low', 'alpha_acid_high', 'beta_acid_low', 'beta_acid_high', 'total_oil_low', 'total_oil_high', 'cohumulone_low', 'cohumulone_high']
         widgets = {
             "hop_name": forms.TextInput(attrs={
                 'class':"form-control",

@@ -25,13 +25,21 @@ def hops(request):
     print "request.method is"
     print request.method
 
-    all_hops = Hop.objects.all().order_by('hop_name')
-    template = loader.get_template('hops.html')
-    model =  {
-        "all_hops":all_hops
-        }
+    if request.method == 'GET':
+        all_hops = Hop.objects.all().order_by('hop_name')
+        template = loader.get_template('hops.html')
+        model =  {
+            "all_hops":all_hops
+            }
+        return HttpResponse(template.render(model))
+    else:
+        # request method was POST
+        form = HopForm(request.POST)
+        template = loader.get_template('hops.html')
+        form.save()
 
-    return HttpResponse(template.render(model))
+        return HttpResponseRedirect('/hops/')
+
 
 # ===== EDIT HOP FORM =====
 def edithop(request, id):
@@ -40,7 +48,8 @@ def edithop(request, id):
     hopform = HopForm(instance=hop)
     # template = loader.get_template('hopform.html')
     model =  {
-        "hopform":hopform
+        'hopform':hopform,
+        'id': id
         }
     # context_instance=RequestContext(request, model)
 

@@ -1,3 +1,5 @@
+<!-- ========= GETTING STARTED ========== -->
+
 1) Install PIP
 > sudo easy_install pip
 
@@ -52,7 +54,7 @@ https://www.youtube.com/watch?v=UpssHYl6bjA&index=7&list=PL6gx4Cwl9DGBlmzzFcLgDh
 the above video at the 10:42 mark has foreign key example
 https://docs.djangoproject.com/en/1.10/topics/migrations/
 
-#migration-serializing
+migration-serializing
  .schema at the client command line
 
 sqlmigrate at the command line just prints it to the screen so that you can see what SQL Django thinks is required - doesn't actually do a migration
@@ -62,29 +64,16 @@ python manage.py check; this checks for any problems in your project without mak
 to filter: Hop.objects.filter(hop_name__startswith='C')
 
 
-<!-- ========= USEFUL INFO FOR FUTURE ========= -->
-one option for logging is: print request.method
+<!-- ========= FORMS ==========  -->
+https://docs.djangoproject.com/en/1.11/topics/forms/
 
 HIDDEN FIELD EXAMPLE:
 <input type="hidden" name="id" value="{{lostitem.id}}">
 
-URL PATTERNS
-url(regex, view, kwargs, name)
+<!-- <form method=“POST” action=“{% if id %}/hops/{{ id }/updateHop{% else %}/hops/ {% end %}” class=“well”> -->
 
-djangit URL Configuration
-
-The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/1.11/topics/http/urls/
-Examples:
-Function views
-    1. Add an import:  from my_app import views
-    2. Add a URL to urlpatterns:  url(r'^$', views.home, name='home')
-Class-based views
-    1. Add an import:  from other_app.views import Home
-    2. Add a URL to urlpatterns:  url(r'^$', Home.as_view(), name='home')
-Including another URLconf
-    1. Import the include() function: from django.conf.urls import url, include
-    2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
+https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django/Forms
+https://docs.djangoproject.com/en/1.10/ref/validators/
 
 
 FOR IMPLEMENTING CHOICES DOWN THE ROAD
@@ -115,10 +104,34 @@ aroma = models.CharField(
     default=HOPPY,
 )
 
-<!-- <form method=“POST” action=“{% if id %}/hops/{{ id }/updateHop{% else %}/hops/ {% end %}” class=“well”> -->
+
+<!-- ======== URL PATTERNS ======== -->
+url(regex, view, kwargs, name)
+
+djangit URL Configuration
+
+The `urlpatterns` list routes URLs to views. For more information please see:
+    https://docs.djangoproject.com/en/1.11/topics/http/urls/
+Examples:
+Function views
+    1. Add an import:  from my_app import views
+    2. Add a URL to urlpatterns:  url(r'^$', views.home, name='home')
+Class-based views
+    1. Add an import:  from other_app.views import Home
+    2. Add a URL to urlpatterns:  url(r'^$', Home.as_view(), name='home')
+Including another URLconf
+    1. Import the include() function: from django.conf.urls import url, include
+    2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
+
+
+<!-- ====== OTHER USEFUL INFO FOR FUTURE ======= -->
+one option for logging is: print request.method
 
 Source code for django.template.context:
 http://django.readthedocs.io/en/latest/_modules/django/template/context.html
 
 Good basic info on working with GET and POST parameters:
 http://django.cowhite.com/blog/working-with-url-get-post-parameters-in-django/
+
+Static files (CSS, JavaScript, Images)
+https://docs.djangoproject.com/en/1.11/howto/static-files/

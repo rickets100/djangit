@@ -1,17 +1,19 @@
 {% include '_navbar.html' %}
 
 <html>
-<head>
-</head>
-<body>
-
-  <div>
-    <div class="jumbotron">
-      <h1>{{ hop }}</h1>
-    </div>
+  <head>
+  </head>
+  <body>
     <div>
-      {{ hop.alpha_acid_low }}
+      <div class="jumbotron"><h1>{{ hop }}</h1></div>
+      <div><h4>Alpha Acid: {{ hop.alpha_acid_low }} - {{ hop.alpha_acid_high }}</h4></div>
+      <div></div>
+      <div><h4>Beta Acid: {{ hop.beta_acid_low }} - {{ hop.beta_acid_high }}</h4></div>
+      <div></div>
+      <div><h4>Total Oil: {{ hop.total_oil_low }} - {{ hop.total_oil_high }}</h4></div>
+      <div></div>
+      <div><h4>Cohumulone: {{ hop.cohumulone_low }} - {{ hop.cohumulone_high }}</h4></div>
+      <div></div>
     </div>
-  </div>
-</body>
+  </body>
 </html>

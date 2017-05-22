@@ -70,7 +70,7 @@ https://docs.djangoproject.com/en/1.11/topics/forms/
 HIDDEN FIELD EXAMPLE:
 <input type="hidden" name="id" value="{{lostitem.id}}">
 
-<!-- <form method=“POST” action=“{% if id %}/hops/{{ id }/updateHop{% else %}/hops/ {% end %}” class=“well”> -->
+<!-- <form method="POST" action={% if id %}"/hops/{{ id }/editHop"{% else %}"/hops/" {% end %} class="well"> -->
 
 https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django/Forms
 https://docs.djangoproject.com/en/1.10/ref/validators/

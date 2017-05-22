@@ -1,7 +1,3 @@
-
-# this is where to put the views that are called by the routes
-# one option for logging is: print request.method
-
 from djangit.forms import HopForm
 from djangit.models import Hop
 from django.shortcuts import render_to_response
@@ -19,7 +15,7 @@ def index(request):
 
     return HttpResponse(template.render())
 
-# ===== GET ALL =====
+# ===== HANDLES BOTH 'GET ALL' AND 'POST ONE' =====
 def hops(request):
     print "got to get all"
     print "request.method is"
@@ -46,12 +42,10 @@ def edithop(request, id):
     print 'got to edithop'
     hop = Hop.objects.get(id=id)
     hopform = HopForm(instance=hop)
-    # template = loader.get_template('hopform.html')
     model =  {
         'hopform':hopform,
         'id': id
         }
-    # context_instance=RequestContext(request, model)
 
     return render(request, 'hopform.html', model)
 
@@ -73,39 +67,19 @@ def newhop(request):
 def onehop(request, id):
     print 'got to onehop'
     print request.body
-
+    template = loader.get_template('showhop.html')
     hop = Hop.objects.get(id=id)
     model =  {
         "hop":hop
         }
 
-    template = loader.get_template('showhop.html')
     return HttpResponse(template.render(model))
-
-# ===== ADD A NEW HOP =====
-def addhop(request):
-    print 'got to addhop'
-    print 'request body is'
-    print request.body
-
-    template = loader.get_template('hops.html')
-    # hop = Hop.objects.get()
-    # model =  {
-    #     "hop":hop
-    #     }
-    # hop.save()
-
-    return HttpResponse(template.render())
 
 # ===== DELETE ONE =====
 def deletehop(request, id):
-    print 'got to deletehop'
     template = loader.get_template('hops.html')
-    all_hops = Hop.objects.all().order_by('hop_name')
     hop = Hop.objects.get(id=id)
     hop.delete()
-    model =  {
-        "all_hops":all_hops
-        }
+    all_hops = Hop.objects.all().order_by('hop_name')
 
-    return HttpResponse(template.render(model))
+    return HttpResponseRedirect('/hops/')

@@ -1,11 +1,10 @@
 {% include '_navbar.html' %}
-
 <h1>Add or Edit a Hop</h1>
 <form method="POST" action="/hops/" class="well">{% csrf_token %}
   <div class="row">
     <div class="col-md-6">
       <div class="form-group">
-        <input type="text" name="id" value="{{id}}">
+        <input type="text" name="id" value="{{ id }}">
         <!-- HOP VARIETY -->
         {{hopform.hop_name.label_tag}}
         {{hopform.hop_name}}

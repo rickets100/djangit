@@ -1,10 +1,4 @@
-# if migrations get all screwy:
-# ./manage.py migrate djangit zero
-# then delete (manually) everything in the migrations folder EXCEPT __init__.py
-# python manage.py showmigrations to show status
-# python manage.py makemigrations
-# python manage.py migrate
-# https://www.youtube.com/watch?v=UpssHYl6bjA&index=7&list=PL6gx4Cwl9DGBlmzzFcLgDhKTTfNLfX1IK
+
 # the above video at the 10:42 mark has foreign key example
 # https://docs.djangoproject.com/en/1.10/topics/migrations/#migration-serializing
  # .schema at the client command line
@@ -32,7 +26,6 @@ class Aroma(models.Model):
     def __str__(self):
         return self.aroma_type
 
-
 class Hop(models.Model):
     hop_name = models.CharField(max_length=50, null=False, blank=False)
     alpha_acid_low = models.DecimalField(max_digits=4, decimal_places=1, null=False, blank=False, default='0')
@@ -46,29 +39,3 @@ class Hop(models.Model):
 
     def __str__(self):
         return self.hop_name
-
-    # CITRUSY = 'CI'
-    # FLORAL = 'FL'
-    # FRUITY = 'FR'
-    # FUNKY = 'FU'
-    # GRASSY = 'GS'
-    # HERBAL = 'HE'
-    # HOPPY = 'HO'
-    # PINEY = 'PI'
-    # SPICY = 'SP'
-    # AROMA_CHOICES = (
-    #     (CITRUSY, 'Citrusy'),
-    #     (FLORAL, 'Floral'),
-    #     (FRUITY, 'Fruity'),
-    #     (FUNKY, 'Funky'),
-    #     (GRASSY, 'Grassy'),
-    #     (HERBAL, 'Herbal'),
-    #     (HOPPY, 'Hoppy'),
-    #     (PINEY, 'Piney'),
-    #     (SPICY, 'Spicy'),
-    # )
-    # aroma = models.CharField(
-    #     max_length=2,
-    #     choices=AROMA_CHOICES,
-    #     default=HOPPY,
-    # )

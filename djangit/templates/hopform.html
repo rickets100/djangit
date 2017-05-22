@@ -4,7 +4,8 @@
   <div class="row">
     <div class="col-md-6">
       <div class="form-group">
-        <input type="text" name="id" value="{{ id }}">
+        <!-- HIDDEN FIELD SO THE FORM WILL INCLUDE AN ID ON SUBMIT -->
+        <input type="hidden" name="id" value="{{ id }}">
         <!-- HOP VARIETY -->
         {{hopform.hop_name.label_tag}}
         {{hopform.hop_name}}
@@ -20,7 +21,6 @@
         {{hopform.alpha_acid_low}}
       </div>
     </div>
-
     <div class="col-md-3">
       <div class="form-group">
         <!-- ALPHA ACID HIGH -->
@@ -28,7 +28,6 @@
         {{hopform.alpha_acid_high}}
       </div>
     </div>
-
     <div class="col-md-3">
       <div class="form-group">
         <!-- BETA ACID LOW -->
@@ -36,7 +35,6 @@
         {{hopform.beta_acid_low}}
       </div>
     </div>
-
     <div class="col-md-3">
       <div class="form-group">
         <!-- BETA ACID HIGH -->

@@ -10,17 +10,12 @@ import requests
 
 # ===== INDEX PAGE =====
 def index(request):
-    print "got to index"
     template = loader.get_template('index.html')
 
     return HttpResponse(template.render())
 
 # ===== HANDLES BOTH 'GET ALL' AND 'POST ONE' =====
 def hops(request):
-    print "got to get all"
-    print "request.method is"
-    print request.method
-
     if request.method == 'GET':
         all_hops = Hop.objects.all().order_by('hop_name')
         template = loader.get_template('hops.html')
@@ -53,7 +48,6 @@ def edithop(request, id):
 # django bug?
 # https://code.djangoproject.com/ticket/27722?cversion=0&cnum_hist=3
 def newhop(request):
-    print 'got to newhop'
     hopform = HopForm()
     # template = loader.get_template('hopform.html')
     model =  {
@@ -65,8 +59,6 @@ def newhop(request):
 
 # ===== GET ONE BY ID =====
 def onehop(request, id):
-    print 'got to onehop'
-    print request.body
     template = loader.get_template('showhop.html')
     hop = Hop.objects.get(id=id)
     model =  {
@@ -80,6 +72,5 @@ def deletehop(request, id):
     template = loader.get_template('hops.html')
     hop = Hop.objects.get(id=id)
     hop.delete()
-    all_hops = Hop.objects.all().order_by('hop_name')
 
     return HttpResponseRedirect('/hops/')

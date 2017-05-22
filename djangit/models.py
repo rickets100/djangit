@@ -1,12 +1,3 @@
-
-# the above video at the 10:42 mark has foreign key example
-# https://docs.djangoproject.com/en/1.10/topics/migrations/#migration-serializing
- # .schema at the client command line
- # sqlmigrate at the command line just prints it to the screen so that you can see what SQL Django thinks is required - doesn't actually do a migration
- #  python manage.py check; this checks for any problems in your project without making migrations or touching the database
- # to filter: Hop.objects.filter(hop_name__startswith='C')
-
-
 from django.db import models
 
 class Country(models.Model):
